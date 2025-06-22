@@ -3,22 +3,17 @@ import 'package:fashionapplication/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DevicePreview(
-    builder: (context) => const FashionApp(),
-  ));
+  runApp(DevicePreview(builder: (context) => FashoinApp()));
 }
-class FashionApp extends StatelessWidget {
-  const FashionApp({super.key});
+
+class FashoinApp extends StatelessWidget {
+  const FashoinApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      locale: DevicePreview.locale(context), // Add this line
-      home:SplashScreen() ,
-    );
+      debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
-
-
