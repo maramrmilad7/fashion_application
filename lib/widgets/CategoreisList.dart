@@ -1,4 +1,5 @@
 import 'package:fashionapplication/models/categories_model.dart';
+import 'package:fashionapplication/views/categories_page.dart';
 import 'package:fashionapplication/widgets/categories_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -39,11 +40,24 @@ class CategoreisList extends StatelessWidget {
               Gap(10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
                 child: Row(
                   children: items.map((item) {
-                    return CategoriesAvatar(
-                      title: item.title,
-                      image: item.image,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return CategoriesScreen();
+                            },
+                          ),
+                        );
+                      },
+                      child: CategoriesAvatar(
+                        title: item.title,
+                        image: item.image,
+                      ),
                     );
                   }).toList(),
                 ),

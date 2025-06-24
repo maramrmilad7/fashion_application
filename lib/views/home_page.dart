@@ -1,10 +1,7 @@
-import 'package:fashionapplication/models/categories_model.dart';
 import 'package:fashionapplication/widgets/BoottomNavigationBar.dart';
 import 'package:fashionapplication/widgets/CategoreisList.dart';
-import 'package:fashionapplication/widgets/categories_avatar.dart';
 import 'package:fashionapplication/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
