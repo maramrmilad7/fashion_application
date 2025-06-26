@@ -1,4 +1,5 @@
 import 'package:fashionapplication/models/product_model.dart';
+import 'package:fashionapplication/views/product_detailes.dart';
 import 'package:fashionapplication/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 
@@ -54,6 +55,20 @@ class ProductGrid extends StatelessWidget {
           itemCount: products.length, // Example item count
           itemBuilder: (context, index) {
             return ProductItem(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ProductDetailes(
+                        image: products[index].image,
+                        title: products[index].title,
+                        price: products[index].price,
+                      );
+                    },
+                  ),
+                );
+              },
               image: products[index].image,
               title: products[index].title,
               price: products[index].price,

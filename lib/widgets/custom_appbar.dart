@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.prefixIcon, required this.postfexIcon, required this.title});
+  const CustomAppBar({
+    super.key,
+    required this.prefixIcon,
+    required this.postfexIcon,
+    required this.title,
+  });
   final String prefixIcon, postfexIcon;
   final String title;
 
@@ -16,13 +21,15 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SvgPicture.asset(
-              prefixIcon,
-              width: 24,
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                Colors.black,
-                BlendMode.srcIn,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: SvgPicture.asset(
+                prefixIcon,
+                width: 24,
+                height: 24,
+                colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
               ),
             ),
             Text(
@@ -37,10 +44,8 @@ class CustomAppBar extends StatelessWidget {
               postfexIcon,
               width: 24,
               height: 24,
-  colorFilter: ColorFilter.mode(
-                Colors.black,
-                BlendMode.srcIn,
-              ),            ),
+              colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+            ),
           ],
         ),
       ),
